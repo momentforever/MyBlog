@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-11-02 15:51:22
- * @LastEditTime: 2021-11-15 13:56:35
+ * @LastEditTime: 2022-03-31 13:45:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /workspace/Blog/C++/STL/Deque.md
@@ -26,7 +26,7 @@ namespace std {
 
 ### 特点
 
-随机访问元素，末端和头部添加删除元素效率高。中间删除和田间元素效率低，元素的存放和迭代比vector要慢。迭代器不能是普通的指针。
+随机访问元素，末端和头部添加删除元素效率高。中间删除和添加元素效率低，元素的存放和迭代比vector要慢。迭代器不能是普通的指针。
 
 ## 创建与初始化
 

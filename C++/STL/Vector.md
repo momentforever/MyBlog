@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-29 16:34:08
- * @LastEditTime: 2022-01-17 11:22:21
+ * @LastEditTime: 2022-03-31 09:39:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /workspace/Blog/C++/STL/Vector.md
@@ -140,12 +140,21 @@ PS: 每次扩容(超过``capacity()``)会重新声明一端连续的内存空间
     //迭代器相关
     a.begin();
     a.end();
+    auto iterBegin = a.begin();
+    for(auto it = a.begin();it < a.end();it++){
+        //...
+    }
     //const
     a.cbegin();
     a.cbegin();
     //尾部->头部
     a.rbegin();
     a.rend();
+    auto riterBegin = a.rbegin();
+    // < 或 !=
+    for(auto rit = a.rbegin();rit < a.rend();rit++){
+        //...
+    }
     //const 尾部->头部
     a.crbegin();
     a.crend();
