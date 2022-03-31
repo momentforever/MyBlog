@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-11-18 16:25:13
- * @LastEditTime: 2022-03-31 11:05:43
+ * @LastEditTime: 2022-03-31 15:04:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /workspace/Blog/C++/STL/Map&Multimap.md
@@ -28,9 +28,9 @@ Map, Multimap是C++98中引入的二叉树数据结构
 
 ### 特点
 
-+ 自动将元素排序
-+ 插入和删除查找O(log(n))
-+ Key元素必须支持严格的弱排序
++ 自动将元素排序。
++ 插入和删除查找O(log(n))。
++ Key元素必须支持严格的弱排序。
 
 1. x < y == true, y < x == false
 2. x < y == true, y < x == true,x < z == true
@@ -38,6 +38,18 @@ Map, Multimap是C++98中引入的二叉树数据结构
 4. a== b, b == c, c == a
 
 + 不能改变Key元素的值
+
+### 特殊:辅助类
+
+```cpp
+namespace std {
+    template<typename T1,typename T2>
+    struct pair{
+        T1 first;
+        T2 second;
+    };
+}
+```
 
 ## 创建与初始化
 
@@ -59,16 +71,18 @@ Map, Multimap是C++98中引入的二叉树数据结构
     // 返回可扩容的最大容量
     d.max_size();
 
-    //operator == != < > <= >=
-
     //special
+    //比较key值大小
     auto keytcomp = c.key_comp();
+    //比较value值大小
     auto valuecomp = c.value_comp();
 ```
 
 ## 赋值
 
 ```cpp
+    //std::map<int,std::string> b;
+    //std::map<int,std::string> g;
     b = g;
 
     // 将二叉树 a 和 b 进行替换
@@ -79,7 +93,6 @@ Map, Multimap是C++98中引入的二叉树数据结构
 ## 元素访问
 
 ```cpp
-    
     // 可以通过[]访问value
     // auto == std::string
     auto& info = b[10];
@@ -120,7 +133,6 @@ Map, Multimap是C++98中引入的二叉树数据结构
     auto high = a.upper_bound(1);
     
     auto range = a.equal_range(1); // return std::make_pair(a.lower_bound(1),a.upper_bound(1));
-
 ```
 
 ### find模板类用法
