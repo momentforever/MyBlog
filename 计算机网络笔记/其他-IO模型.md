@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2021-12-13 13:51:59
- * @LastEditTime: 2022-04-01 16:38:32
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-10 15:54:03
+ * @LastEditors: moment-forever lzt1141@126.com
  * @Description: In User Settings Edit
  * @FilePath: /workspace/Studynote/网络开发笔记/其他.md
 -->
@@ -22,7 +22,7 @@ Blocking I/O 也叫BIO， 也就是阻塞IO。
 
 从图中可以看出当进程了调用了recvfrom的系统调用，kernel就开始了进行IO操作了，这个操作就是准备数据。而这个准备数据是需要一个过程的，内核需要获取数据，需要等待数据被拷贝到内核空间，然后再将数据从内核空间拷贝到用户空间。这其中涉及到两个过程，一个就是操作系统内核需要等待数据被拷贝到内核空间，另一个过程就是将数据从内核空间拷贝到用户空间。在这个阻塞IO模型中，在数据还没到达用户空间之前，这两个过程都是阻塞的，一直处于Blocking的状态。
 
-## Multiplexing I/O (IO多路复用)
+## NonBlocking I/O (非阻塞IO)
 
 ![NIO](image/NIO.png)
 
@@ -32,7 +32,7 @@ NonBlocking I/O 也叫NIO，也就是非阻塞IO。
 
 NIO则是直接先返回一个error告知进程数据还没准备好。同样的在进程端，也不用一直傻傻的等待，当得到一个数据还没准备好的错误时，会再次发送系统调用，直到内核准备好了数据，再从内核空间将数据拷贝到用户空间。
 
-## Asynchronous I/O (异步IO)
+## Multiplexing I/O (IO多路复用)
 
 ![MIO](image/MIO.png)
 
